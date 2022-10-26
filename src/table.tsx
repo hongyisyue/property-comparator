@@ -1,8 +1,10 @@
+import MaterialTable from "material-table";
 import React from "react";
 import "./table.css";
-
+import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 
 type Swing = {
+    id: number,
     clubName: string,
     clubType: string,
     brand: string,
@@ -12,8 +14,10 @@ type Swing = {
     distance: number
 };
 
+
 const swingTests: Swing[] = [
     {
+        id: 1,
         clubName: 'G425 Max',
         clubType: '5 iron',
         brand: 'Ping',
@@ -23,6 +27,7 @@ const swingTests: Swing[] = [
         distance: 232
     },
     {
+        id: 2,
         clubName: 'G425',
         clubType: '5 hybird',
         brand: 'Ping',
@@ -32,6 +37,7 @@ const swingTests: Swing[] = [
         distance: 241
     },
     {
+        id: 3,
         clubName: 'G425 Max',
         clubType: '4 iron',
         brand: 'Ping',
@@ -41,6 +47,7 @@ const swingTests: Swing[] = [
         distance: 259
     },
     {
+        id: 4,
         clubName: 'G425',
         clubType: '4 hybird',
         brand: 'Ping',
@@ -51,9 +58,52 @@ const swingTests: Swing[] = [
     }
 ];
 
+const cols: GridColDef[] =
+    [
+        { field: 'clubName', headerName: 'Club Name', width: 130 },
+        { field: 'clubType', headerName: 'Club Type', width: 130 },
+        {
+            field: 'brand',
+            headerName: 'Brand',
+            type: 'number',
+            width: 90,
+        },
+        {
+            field: 'ballSpeed',
+            headerName: 'Ball Speed',
+            type: 'number',
+            width: 90,
+        },
+        {
+            field: 'spin',
+            headerName: 'Spin',
+            type: 'number',
+            width: 90,
+        },
+        {
+            field: 'launchAngle',
+            headerName: 'Launch Angle',
+            type: 'number',
+            width: 90,
+        },
+        {
+            field: 'distance',
+            headerName: 'Distance',
+            type: 'number',
+            width: 90,
+        }
+    ];
 function TestTable() {
     return (
-        <div></div>
+        <div style={{height: 400, width: '100%'}}>
+            <DataGrid
+                rows={swingTests}
+                columns={cols}
+                pageSize={5}
+                rowsPerPageOptions={[5]}
+                checkboxSelection
+            />
+        </div>
     );
 }
 
