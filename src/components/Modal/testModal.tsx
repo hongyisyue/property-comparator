@@ -53,7 +53,7 @@ export default function TestModal({open, onClose, onSubmit}: props) {
           <h3>Location: </h3>
           <input name='location' type='text' onChange={handleChange}/>
           <h3>Property Type: </h3>
-          <input name='type' type='number' onChange={handleChange}/>
+          <input name='type' type='text' onChange={handleChange}/>
           <h3>Year: </h3>
           <input name='year' type='number' onChange={handleChange}/>
           <h3>Size: </h3>
@@ -67,7 +67,7 @@ export default function TestModal({open, onClose, onSubmit}: props) {
           <h3>AC: </h3>
           <input name='ac' type='checkbox' onChange={handleChange}/>
           <h3>Parking: </h3>
-          <input name='parking' type='checkbox' onChange={handleChange}/>
+          <input name='parking' type='number' onChange={handleChange}/>
           <h3>MOA: </h3>
           <input name='moa' type='number' onChange={handleChange}/>
           <h3>Price: </h3>

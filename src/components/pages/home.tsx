@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Property } from "../../utils/interface/interface";
 import TestModal from "../Modal/testModal";
 import TestTable from "../table/table";
-import { PropertyType } from "../../utils/enums/enum";
 
 // const Table = <TestTable/>;
 

@@ -7,20 +7,30 @@ interface props {
 }
 const cols: GridColDef[] =
     [
-        { field: 'location', headerName: 'Location', width: 130 },
-        { field: 'type', headerName: 'Type', width: 130 },
+        { 
+            field: 'location',
+            headerName: 'Location',
+            minWidth: 130,
+            flex: 1 
+        },
+        { 
+            field: 'type',
+            headerName: 'Type',
+            width: 100,
+            flex: 0.5  
+        },
         {
             field: 'year',
             headerName: 'Year',
             type: 'number',
-            width: 90,
+            width: 50,
             sortable: true,
         },
         {
             field: 'size',
             headerName: 'sqft',
             type: 'number',
-            width: 90,
+            width: 50,
             sortable: true,
         },
         {
@@ -34,19 +44,19 @@ const cols: GridColDef[] =
             field: 'bathroom',
             headerName: 'bathroom',
             type: 'number',
-            width: 60,
+            width: 80,
         },
         {
             field: 'den',
             headerName: 'Den',
             type: 'boolean',
-            width: 60,
+            width: 50,
         },
         {
             field: 'ac',
             headerName: 'AC',
             type: 'boolean',
-            width: 60,
+            width: 50,
         },
         {
             field: 'parking',
@@ -58,20 +68,20 @@ const cols: GridColDef[] =
             field: 'moa',
             headerName: 'MOA',
             type: 'number',
-            width: 90,
+            width: 60,
         },
         {
             field: 'price',
             headerName: 'Price',
             type: 'number',
-            width: 120,
+            width: 90,
             sortable: true,
         },
         {
             field: 'unitPrice',
-            headerName: 'Price per sqft',
+            headerName: '$/sqft',
             type: 'number',
-            width: 90,
+            width: 60,
             valueGetter: (v: GridValueGetterParams) => v.row.price / v.row.size,
             sortable: true,
         }
@@ -85,7 +95,6 @@ function TestTable( {data} : props ) {
                 columns={cols}
                 pageSize={5}
                 rowsPerPageOptions={[5]}
-                checkboxSelection
             />
         </div>
     );
