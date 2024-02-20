@@ -1,23 +1,10 @@
-import MaterialTable from "material-table";
-import React from "react";
+import { Property } from "../../utils/interface/interface";
 import "./table.css";
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-import { PropertyType } from "../../data/enum";
 
-interface Property {
-    location: string,
-    type: PropertyType,
-    year: number,
-    size: number,
-    room: number,
-    bathroom: number,
-    den: boolean,
-    ac: boolean,
-    parking: number,
-    MOA: number,
-    price: number
+interface props {
+    data: Property[]
 }
-
 const cols: GridColDef[] =
     [
         { field: 'location', headerName: 'Location', width: 130 },
@@ -90,7 +77,7 @@ const cols: GridColDef[] =
         }
     ];
 
-function TestTable( data : Property[]) {
+function TestTable( {data} : props ) {
     return (
         <div style={{height: 400, width: '100%'}}>
             <DataGrid

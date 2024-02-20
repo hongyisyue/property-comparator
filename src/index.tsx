@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import TestTable from './components/table/table';
+import Home from './components/pages/home';
 
-const myTable = <TestTable/>
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    {myTable}
+    <Home/>
   </React.StrictMode>
 );
