@@ -50,28 +50,34 @@ export default function TestModal({open, onClose, onSubmit}: props) {
   return (
     <div style={MODAL_STYLES}>
         <form onSubmit={sumbit}>
-          <h3>Location: </h3>
-          <input name='location' type='text' onChange={handleChange}/>
-          <h3>Property Type: </h3>
-          <input name='type' type='text' onChange={handleChange}/>
-          <h3>Year: </h3>
-          <input name='year' type='number' onChange={handleChange}/>
-          <h3>Size: </h3>
-          <input name='size' type='number' onChange={handleChange}/>
-          <h3>Room: </h3>
-          <input name='room' type='number' onChange={handleChange}/>
-          <h3>Bathroom: </h3>
-          <input name='bathroom' type='number' onChange={handleChange}/>
-          <h3>Den: </h3>
-          <input name='den' type='checkbox' onChange={handleChange}/>
-          <h3>AC: </h3>
-          <input name='ac' type='checkbox' onChange={handleChange}/>
-          <h3>Parking: </h3>
-          <input name='parking' type='number' onChange={handleChange}/>
-          <h3>MOA: </h3>
-          <input name='moa' type='number' onChange={handleChange}/>
-          <h3>Price: </h3>
-          <input name='price' type='number' onChange={handleChange}/>
+          <div className="row" style={{display: 'flex', flexDirection: 'row'}}>
+            <div className="col" style={{width: 'fit-content'}}>
+              <h3>Location: </h3>
+              <input name='location' type='text' onChange={handleChange}/>
+              <h3>Property Type: </h3>
+              <input name='type' type='text' onChange={handleChange}/>
+              <h3>Year: </h3>
+              <input name='year' type='number' onChange={handleChange}/>
+              <h3>Size: </h3>
+              <input name='size' type='number' onChange={handleChange}/>
+              <h3>Room: </h3>
+              <input name='room' type='number' onChange={handleChange}/>
+              <h3>Bathroom: </h3>
+              <input name='bathroom' type='number' onChange={handleChange}/>
+            </div>
+            <div className="col" style={{width: 'fit-content'}}>
+              <h3>Den: </h3>
+              <input name='den' type='checkbox' onChange={handleChange}/>
+              <h3>AC: </h3>
+              <input name='ac' type='checkbox' onChange={handleChange}/>
+              <h3>Parking: </h3>
+              <input name='parking' type='number' onChange={handleChange}/>
+              <h3>MOA: </h3>
+              <input name='moa' type='number' onChange={handleChange}/>
+              <h3>Price: </h3>
+              <input name='price' type='number' onChange={handleChange}/>
+            </div>
+          </div>
         </form>
         <button onClick={sumbit}>Submit</button>
         <button onClick={onClose}>X</button>
