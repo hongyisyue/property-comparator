@@ -1,19 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Property } from "../../utils/interface/interface";
 import TestModal from "../Modal/testModal";
 import TestTable from "../table/table";
 
-// const Table = <TestTable/>;
-
 export default function Home() {
     const [isOpen, setIsOpen] = useState(false);
-    const [rows, setRows] = useState<Property[]>([]);
+
+    const sessionRows = localStorage.getItem('autosave');
+    const [rows, setRows] = useState<Property[]>(sessionRows ? JSON.parse(sessionRows) : []);
 
     const handleAddRecord = (v: Property) => {
         const newRow: Property = {...v, id: rows.length +1};
         setRows([...rows, newRow]);
         setIsOpen(false);
     }
+    useEffect(() => {
+        localStorage.setItem('autosave', JSON.stringify(rows));
+    }, [rows])
     return (
         <>
             <div style={{display: "flex", alignItems:"center", justifyContent:"center", flexDirection: 'column'}}>

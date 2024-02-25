@@ -23,7 +23,7 @@ const cols: GridColDef[] =
             field: 'year',
             headerName: 'Year',
             type: 'number',
-            width: 50,
+            width: 60,
             sortable: true,
         },
         {
@@ -76,6 +76,7 @@ const cols: GridColDef[] =
             type: 'number',
             width: 90,
             sortable: true,
+            flex: 0.25 
         },
         {
             field: 'unitPrice',
@@ -84,6 +85,7 @@ const cols: GridColDef[] =
             width: 60,
             valueGetter: (v: GridValueGetterParams) => v.row.price / v.row.size,
             sortable: true,
+            flex: 0.25 
         }
     ];
 
