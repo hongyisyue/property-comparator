@@ -1,22 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Property } from "../../utils/interface/interface";
 import TestModal from "../Modal/testModal";
 import TestTable from "../table/table";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 export default function Home() {
     const [isOpen, setIsOpen] = useState(false);
 
-    const sessionRows = localStorage.getItem('autosave');
-    const [rows, setRows] = useState<Property[]>(sessionRows ? JSON.parse(sessionRows) : []);
+    // Custoem hook usage here
+    const [rows, setRows] = useLocalStorage({key: 'autosave', initialValue: []})
 
     const handleAddRecord = (v: Property) => {
-        const newRow: Property = {...v, id: rows.length +1};
-        setRows([...rows, newRow]);
+        setRows(v); // Custom setter usage
         setIsOpen(false);
     }
-    useEffect(() => {
-        localStorage.setItem('autosave', JSON.stringify(rows));
-    }, [rows])
     return (
         <>
             <div style={{display: "flex", alignItems:"center", justifyContent:"center", flexDirection: 'column'}}>
