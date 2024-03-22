@@ -7,18 +7,6 @@ interface props {
     onSubmit: (v: Property) => void;
 }
 
-
-const MODAL_STYLES = {
-  Position: 'fixed',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  backgroundColor: '#FFF',
-  padding: '50px',
-  zIndex: 1000,
-  border: 'solid'
-}
-
 export default function TestModal({open, onClose, onSubmit}: props) {
   
   const [detail, setDetail] = useState<Property>({
@@ -48,7 +36,7 @@ export default function TestModal({open, onClose, onSubmit}: props) {
   if (!open) return null
 
   return (
-    <div style={MODAL_STYLES}>
+    <div id='myModal' className='modal'>
         <form onSubmit={sumbit}>
           <div className="row" style={{display: 'flex', flexDirection: 'row'}}>
             <div className="col" style={{width: 'fit-content'}}>
@@ -79,8 +67,8 @@ export default function TestModal({open, onClose, onSubmit}: props) {
             </div>
           </div>
         </form>
-        <button onClick={sumbit}>Submit</button>
-        <button onClick={onClose}>X</button>
+        <button className="button" onClick={sumbit}>Submit</button>
+        <button className="button" onClick={onClose}>X</button>
       </div>
     )
 }

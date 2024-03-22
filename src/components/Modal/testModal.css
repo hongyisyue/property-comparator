@@ -1,9 +1,39 @@
+:root {
+    --theme-color: rgba(185, 185, 185, 0.8);
+}
+
 .col {
     padding: theme('spacing.2');
 }
 
+.modal {
+    /* display: none; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--theme-color);
+    padding: 50px;
+    z-index: 1000;
+    border-radius: 20px;
+    position: fixed;
+    animation: fadeInModal 0.5s forwards;
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal ::backdrop {
+    color: antiquewhite;
+    background-color: aqua;
+}
+
 input {
-    border: theme('spacing[0.5]') theme('colors.gray.400') solid;
     border-radius: theme('spacing.2');
 }
 
@@ -15,15 +45,14 @@ input[type="checkbox"] {
 }
 
 h3 {
-    color: theme('colors.gray.600');
+    color: hsl(from var(--theme-color) h s calc(l - 0.5));;
 }
 
-button {
+.button {
     text-align: center;
-    border: theme('spacing[0.5]') theme('colors.gray.400') solid;
     border-radius: theme('spacing.2');
-    background-color: theme('colors.sky.600') !important;
-    color: theme('colors.sky.900') !important;
-    padding: theme('spacing.2') !important;
-    margin: theme('spacing.2') !important;
+    background-color: hsl(from var(--theme-color) h s calc(l - 0.5));
+    color: var(--theme-color);
+    padding: theme('spacing.2');
+    margin: theme('spacing.2');
 }
