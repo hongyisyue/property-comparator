@@ -1,5 +1,4 @@
 import { Property } from "../../utils/interface/interface";
-import "./table.css";
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 
 interface props {
@@ -7,17 +6,17 @@ interface props {
 }
 const cols: GridColDef[] =
     [
-        { 
+        {
             field: 'location',
             headerName: 'Location',
             minWidth: 130,
-            flex: 1 
+            flex: 1
         },
-        { 
+        {
             field: 'type',
             headerName: 'Type',
             width: 100,
-            flex: 0.5  
+            flex: 0.5
         },
         {
             field: 'year',
@@ -76,7 +75,7 @@ const cols: GridColDef[] =
             type: 'number',
             width: 90,
             sortable: true,
-            flex: 0.25 
+            flex: 0.25
         },
         {
             field: 'unitPrice',
@@ -85,20 +84,22 @@ const cols: GridColDef[] =
             width: 60,
             valueGetter: (v: GridValueGetterParams) => v.row.price / v.row.size,
             sortable: true,
-            flex: 0.25 
+            flex: 0.25
         }
     ];
 
-function TestTable( {data} : props ) {
+function TestTable({ data }: props) {
     return (
-        <div style={{height: 400, width: '100%'}}>
-            <DataGrid
-                rows={data}
-                columns={cols}
-                pageSize={5}
-                rowsPerPageOptions={[5]}
-            />
-        </div>
+        <>
+            <div className="table-container">
+                <DataGrid
+                    rows={data}
+                    columns={cols}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                />
+            </div>
+        </>
     );
 }
 

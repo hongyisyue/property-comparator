@@ -14,28 +14,24 @@ export default function Home() {
         setRows(v); // Custom setter usage
         setIsOpen(false);
     }
+
     return (
         <>
-            <div style={{display: "flex", alignItems:"center", justifyContent:"center", flexDirection: 'column'}}>
-                <div className="row" style={{width: "100%"}}>
-                    <div className="col">
-                        <TestTable data={rows}></TestTable>
-                    </div>
-                </div>
-                <div className="row">
-                    <button
-                        style={{textAlign: 'center'}}
-                        onClick={() => setIsOpen(true)}
-                    >
-                        + Add
-                    </button>
-                    <TestModal
-                        open={isOpen}
-                        onClose={() => setIsOpen(false)}
-                        onSubmit={handleAddRecord}
-                    />
-                </div>
+            <div className="home">
+                <TestTable data={rows}></TestTable>
+                <TestModal
+                    open={isOpen}
+                    onClose={() => setIsOpen(false)}
+                    onSubmit={handleAddRecord}
+                ></TestModal>
+                <button
+                    className="button wide-button"
+                    onClick={() => setIsOpen(true)}
+                >
+                    + Add
+                </button>
             </div>
+
         </>
     )
 }
