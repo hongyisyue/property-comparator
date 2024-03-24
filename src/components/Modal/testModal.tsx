@@ -4,7 +4,7 @@ import { Property } from '../../utils/interface/interface';
 
 interface props {
   open: boolean;
-  onClose: () => void,
+  onClose: () => void;
   onSubmit: (v: Property) => void;
 }
 

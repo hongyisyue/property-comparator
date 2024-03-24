@@ -12,6 +12,7 @@ function getDefaultData(key: string, initialValue: any) {
     if (initialValue instanceof Function) return initialValue();
     return initialValue;
 }
+
 export default function useLocalStorage({key, initialValue}: prop) {
     const [data, setData] = useState(getDefaultData(key, []));
 
@@ -23,10 +24,16 @@ export default function useLocalStorage({key, initialValue}: prop) {
 
     // Custom setter usage
     const setDataWithId = useCallback((newData: any) => {
-        setData((oldData: any[]) => {
-            const newRow = {...newData, id: oldData.length+1};
-            return [...oldData, newRow];
-        });
+        if (newData?.length > 1) {
+            setData(() => {
+                return newData;
+            });
+        } else {
+            setData((oldData: any[]) => {
+                const newRow = {...newData, id: oldData.length+1};
+                return [...oldData, newRow];
+            });
+        }
     }, []);
     return [data, setDataWithId];
 }
