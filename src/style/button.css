@@ -1,0 +1,21 @@
+.button {
+    text-align: center;
+    border-radius: 3px;
+    background-color: hsl(from var(--theme-color) h s calc(l - 0.5));
+    padding: 7px;
+}
+
+.left-button {
+    float: inline-start;
+}
+
+.right-button {
+    float: inline-end;
+}
+
+.wide-button {
+    padding: 7px;
+    border-radius: 3px;
+    margin: 5px;
+    width: 100%;
+}

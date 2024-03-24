@@ -1,0 +1,8 @@
+input {
+    border: none;
+    border-radius: 2px;
+}
+
+input[type="checkbox"] {
+    transform: scale(2);
+}

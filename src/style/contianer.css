@@ -1,0 +1,25 @@
+.row {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.footer {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.col {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.table-container {
+    height: 600px;
+    width: 100%;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

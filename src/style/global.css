@@ -1,0 +1,12 @@
+:root {
+    --theme-color: rgba(185, 185, 185, 0.5);
+}
+
+body * {
+    font-size: 12px;
+    font-family: monospace;
+}
+
+h3 {
+    color: hsl(from var(--theme-color) h s calc(l - 0.5));;
+}
