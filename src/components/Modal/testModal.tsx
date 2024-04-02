@@ -24,6 +24,13 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
     price: undefined
   });
 
+  const typeOptions = [
+    'Condo',
+    'Townhouse',
+    'Duplex',
+    'Single-family home'
+  ];
+
   const handleChange = (e: any) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -47,7 +54,12 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
             <h3>Location: </h3>
             <input name='location' type='text' onChange={handleChange} />
             <h3>Property Type: </h3>
-            <input name='type' type='text' onChange={handleChange} />
+            <select name='type' onChange={handleChange}>
+              <option value='Please select'></option>
+              {typeOptions.map(option => (
+                <option value={option}>{option}</option>
+              ))}
+            </select>
             <h3>Year: </h3>
             <input name='year' type='number' onChange={handleChange} />
             <h3>Size: </h3>
