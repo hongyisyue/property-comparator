@@ -13,7 +13,6 @@ export default function Home() {
 
     const handleAddRecord = (v: Property) => {
         setRows(v); // Custom setter usage
-        setIsOpen(false);
     }
 
     const handleRemoveRecord = (id: GridRowId) => {
