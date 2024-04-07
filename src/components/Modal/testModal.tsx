@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Property } from '../../utils/interface/interface';
-// import './testModal.css'
 
 interface props {
   open: boolean;
@@ -57,7 +56,7 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
     setDetail((prev) => { return { ...prev, [name]: value } })
   }
 
-  const sumbit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSumbit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit(detail);
     onClose();
@@ -68,7 +67,7 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
       <div className="row col header">
         New place to watch
       </div>
-      <form onSubmit={sumbit}>
+      <form onSubmit={handleSumbit}>
         <div className="row" style={{ display: 'flex', flexDirection: 'row' }}>
           <div className="col" style={{ width: 'fit-content' }}>
             <h3>Location: </h3>
