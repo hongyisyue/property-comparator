@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Property } from '../../utils/interface/interface';
-import axios from 'axios';
-import cheerio from 'cheerio';
 
 interface props {
   open: boolean;
@@ -65,39 +63,11 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
     onClose();
   }
 
-  const handleUrlSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const response = await axios.get(url); // Make HTTP request to the provided URL
-    const html = response.data;
-    const $ = cheerio.load(html);
-
-    const price = parseFloat($('meta[property="product:price:amount"]').attr('content') || '0');
-    const MOAFee = parseFloat($('meta[property="product:moa_fee:amount"]').attr('content') || '0');
-    const status = $('meta[property="og:availability"]').attr('content') || 'Unknown';
-    const tax = parseFloat($('meta[property="product:tax"]').attr('content') || '0');
-
-    console.log(price);
-    console.log(MOAFee);
-    console.log(status);
-    console.log(tax);
-  }
-
   return (
     <dialog id='myModal' className='modal' open={open}>
       <div className="row col header">
         New place to watch
       </div>
-      <form onSubmit={handleUrlSubmit}>
-        <div className="row" style={{ display: 'flex', flexDirection: 'row' }}>
-          <div className="col" style={{ width: 'fit-content' }}>
-            <h3>Url</h3>
-            <input name='url' type='text' value={url} onChange={(e) => setUrl(e.target.value)}/>
-          </div>
-        </div>
-        <div className="footer col">
-          <button className="button right-button" type="submit">Submit</button>
-        </div>
-      </form>
       <form onSubmit={handleSumbit}>
         <div className="row" style={{ display: 'flex', flexDirection: 'row' }}>
           <div className="col" style={{ width: 'fit-content' }}>

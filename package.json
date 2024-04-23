@@ -20,8 +20,6 @@
     "@types/node": "^16.18.0",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
-    "axios": "^1.6.8",
-    "cheerio": "^1.0.0-rc.12",
     "material-table": "^2.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
