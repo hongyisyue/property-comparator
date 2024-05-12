@@ -12,5 +12,6 @@ export interface Property {
     ac: boolean | undefined,
     parking: number | undefined,
     MOA: number | undefined,
-    price: number | undefined
+    price: number | undefined,
+    openHouse: string | undefined
 }

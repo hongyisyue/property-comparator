@@ -13,13 +13,19 @@ export default function TestTable({ data, onDelete }: props) {
                 field: 'location',
                 headerName: 'Location',
                 minWidth: 130,
-                flex: 1
+                flex: 0.85
+            },
+            {
+                field: 'openHouse',
+                headerName: 'Open House',
+                minWidth: 130,
+                flex: 0.5
             },
             {
                 field: 'type',
                 headerName: 'Type',
                 width: 100,
-                flex: 0.5
+                flex: 0.15
             },
             {
                 field: 'year',
@@ -30,23 +36,23 @@ export default function TestTable({ data, onDelete }: props) {
             },
             {
                 field: 'size',
-                headerName: 'sqft',
+                headerName: 'Sqft',
                 type: 'number',
                 width: 50,
                 sortable: true,
             },
             {
                 field: 'room',
-                headerName: 'room',
+                headerName: 'Room',
                 type: 'number',
                 width: 60,
                 sortable: true,
             },
             {
                 field: 'bathroom',
-                headerName: 'bathroom',
+                headerName: 'Bath',
                 type: 'number',
-                width: 80,
+                width: 60,
             },
             {
                 field: 'den',
@@ -62,7 +68,7 @@ export default function TestTable({ data, onDelete }: props) {
             },
             {
                 field: 'parking',
-                headerName: 'Parking',
+                headerName: 'Park',
                 type: 'number',
                 width: 60,
             },
@@ -74,7 +80,7 @@ export default function TestTable({ data, onDelete }: props) {
             },
             {
                 field: 'price',
-                headerName: 'Price',
+                headerName: '$',
                 type: 'number',
                 width: 90,
                 sortable: true,

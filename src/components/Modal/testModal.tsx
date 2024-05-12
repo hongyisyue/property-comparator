@@ -8,8 +8,6 @@ interface props {
 }
 
 export default function TestModal({ open, onClose, onSubmit }: props) {
-  const [url, setUrl] = useState('');
-
   useEffect(() => {
     if (!open) {
       // Reset detail state when modal is closed
@@ -24,7 +22,8 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
         ac: false,
         parking: undefined,
         MOA: undefined,
-        price: undefined
+        price: undefined,
+        openHouse: undefined
       });
     }
   }, [open]);
@@ -40,7 +39,8 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
     ac: false,
     parking: undefined,
     MOA: undefined,
-    price: undefined
+    price: undefined,
+    openHouse: undefined
   });
 
   const typeOptions = [
@@ -100,6 +100,8 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
             <input name='moa' type='number' value={detail.MOA} onChange={handleChange} />
             <h3>Price: </h3>
             <input name='price' type='number' value={detail.price} onChange={handleChange} />
+            <h3>Open House: </h3>
+            <input name='openHouse' type='datetime-local' value={detail.openHouse} onChange={handleChange} />
           </div>
         </div>
         <div className="footer col">
