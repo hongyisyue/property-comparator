@@ -13,6 +13,10 @@ function getDefaultData(key: string, initialValue: any) {
     return initialValue;
 }
 
+function getLargestId(records: any[]): number {
+    return records.reduce((a, b) => a.id > b.id ? a.id : b.id, 0); 
+}
+
 export default function useLocalStorage({key, initialValue}: prop) {
     const [data, setData] = useState(getDefaultData(key, []));
 
@@ -30,7 +34,7 @@ export default function useLocalStorage({key, initialValue}: prop) {
             });
         } else {
             setData((oldData: any[]) => {
-                const newRow = {...newData, id: oldData.length+1};
+                const newRow = {...newData, id: getLargestId(oldData)};
                 return [...oldData, newRow];
             });
         }

@@ -13,13 +13,13 @@ export default function TestTable({ data, onDelete }: props) {
                 field: 'location',
                 headerName: 'Location',
                 minWidth: 130,
-                flex: 0.85
+                flex: 0.75
             },
             {
                 field: 'openHouse',
                 headerName: 'Open House',
                 minWidth: 130,
-                flex: 0.5
+                flex: 0.6
             },
             {
                 field: 'type',
@@ -45,14 +45,14 @@ export default function TestTable({ data, onDelete }: props) {
                 field: 'room',
                 headerName: 'Room',
                 type: 'number',
-                width: 60,
+                width: 50,
                 sortable: true,
             },
             {
                 field: 'bathroom',
                 headerName: 'Bath',
                 type: 'number',
-                width: 60,
+                width: 50,
             },
             {
                 field: 'den',
@@ -70,7 +70,7 @@ export default function TestTable({ data, onDelete }: props) {
                 field: 'parking',
                 headerName: 'Park',
                 type: 'number',
-                width: 60,
+                width: 50,
             },
             {
                 field: 'moa',
