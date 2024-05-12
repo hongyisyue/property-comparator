@@ -6,7 +6,7 @@ import useLocalStorage from "../../hooks/useLocalStorage";
 import { GridRowId } from "@mui/x-data-grid";
 
 export default function Home() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [open, setOpen] = useState(false);
 
     // Custoem hook usage here
     const [rows, setRows] = useLocalStorage({key: 'autosave', initialValue: []})
@@ -27,13 +27,13 @@ export default function Home() {
                     onDelete={handleRemoveRecord}
                 />
                 <TestModal
-                    open={isOpen}
-                    onClose={() => setIsOpen(false)}
+                    open={open}
+                    onClose={() => setOpen(false)}
                     onSubmit={handleAddRecord}
                 />
                 <button
                     className="button wide-button"
-                    onClick={() => setIsOpen(true)}
+                    onClick={() => setOpen(true)}
                 >
                     + Add
                 </button>
