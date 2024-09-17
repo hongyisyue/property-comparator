@@ -8,26 +8,6 @@ interface props {
 }
 
 export default function TestModal({ open, onClose, onSubmit }: props) {
-  useEffect(() => {
-    if (!open) {
-      // Reset detail state when modal is closed
-      setDetail({
-        location: undefined,
-        type: undefined,
-        year: undefined,
-        size: undefined,
-        room: undefined,
-        bathroom: undefined,
-        den: false,
-        ac: false,
-        parking: undefined,
-        MOA: undefined,
-        price: undefined,
-        openHouse: undefined
-      });
-    }
-  }, [open]);
-
   const [detail, setDetail] = useState<Property>({
     location: undefined,
     type: undefined,
@@ -49,6 +29,30 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
     'Duplex',
     'Single-family home'
   ];
+
+  function clearData() {
+    setDetail({
+      location: undefined,
+      type: undefined,
+      year: undefined,
+      size: undefined,
+      room: undefined,
+      bathroom: undefined,
+      den: false,
+      ac: false,
+      parking: undefined,
+      MOA: undefined,
+      price: undefined,
+      openHouse: undefined
+    });
+  }
+
+  useEffect(() => {
+    if (open) {
+      // Reset detail state when modal is closed
+      clearData();
+    }
+  }, [open]);
 
   const handleChange = (e: any) => {
     const name = e.target.name;

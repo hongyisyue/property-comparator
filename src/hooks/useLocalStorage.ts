@@ -34,7 +34,7 @@ export default function useLocalStorage({key, initialValue}: prop) {
             });
         } else {
             setData((oldData: any[]) => {
-                const newRow = {...newData, id: getLargestId(oldData)};
+                const newRow = {...newData, id: getLargestId(oldData)+1};
                 return [...oldData, newRow];
             });
         }
