@@ -1,5 +1,5 @@
 :root {
-    --theme-color: rgba(185, 185, 185, 0.5);
+    --theme-color: hsl(0, 0%, 73%, 0.5);
 }
 
 body * {
@@ -8,5 +8,7 @@ body * {
 }
 
 h3 {
-    color: hsl(from var(--theme-color) h s calc(l - 0.5));;
+    /* color: hsla(from var(--theme-color) h s calc(l-0.2) a); */
+    color: var(--theme-color);
+    filter: brightness(0.3);
 }
