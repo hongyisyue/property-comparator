@@ -8,58 +8,12 @@ interface props {
 }
 
 export default function TestModal({ open, onClose, onSubmit }: props) {
-  // const [detail, setDetail] = useState<Property>({
-  //   location: "",
-  //   type: "",
-  //   year: "",
-  //   size: "",
-  //   room: "",
-  //   bathroom: "",
-  //   den: false,
-  //   ac: false,
-  //   parking: "",
-  //   MOA: '',
-  //   price: "",
-  //   openHouse: ""
-  // });
-
   const typeOptions = [
     'Condo',
     'Townhouse',
     'Duplex',
     'Single-family home'
   ];
-
-  // function clearData() {
-  //   setDetail({
-  //     location: '',
-  //     type: "",
-  //     year: "", // or 0 if you'd prefer a default number
-  //     size: "", // or 0
-  //     room: "", // or 0
-  //     bathroom: "", // or 0
-  //     den: false,
-  //     ac: false,
-  //     parking: "", // or 0
-  //     MOA: '', // or 0
-  //     price: "", // or 0
-  //     openHouse: "" // or new Date().toISOString().slice(0,16) for a default datetime-local value
-  //   });
-  // }
-
-  // useEffect(() => {
-  //   if (open) {
-  //     // Reset detail state when modal gets open
-  //     // clearData();
-  //   }
-  // }, [open]);
-
-  // const handleChange = (e: any) => {
-  //   const name = e.target.name;
-  //   const value = e.target.value;
-
-  //   setDetail((prev) => { return { ...prev, [name]: value } })
-  // }
 
   const handleSumbit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
