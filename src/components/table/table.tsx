@@ -19,7 +19,7 @@ export default function TestTable({ data, onDelete }: props) {
             {
                 field: 'link',
                 headerName: 'Link',
-                width: 120,
+                width: 60,
                 type: 'actions',
                 cellClassName: 'actions',
                 getActions: ({ row }) => {
