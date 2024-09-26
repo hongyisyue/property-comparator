@@ -1,6 +1,7 @@
 import { Property } from "../../utils/interface/interface";
 import { DataGrid, GridColDef, GridValueGetter, GridActionsCellItem, GridRowId } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
+import { Link } from "@material-ui/icons";
 interface props {
     data: Property[];
     onDelete: (r: GridRowId) => void;
@@ -14,6 +15,26 @@ export default function TestTable({ data, onDelete }: props) {
                 headerName: 'Location',
                 minWidth: 130,
                 flex: 0.75
+            },
+            {
+                field: 'link',
+                headerName: 'Link',
+                width: 120,
+                type: 'actions',
+                cellClassName: 'actions',
+                getActions: ({ row }) => {
+                    return [
+                        <GridActionsCellItem
+                            icon={<Link />}
+                            label="Link"
+                            title={row.link}
+                            onClick={() => {
+                                window.open(row.link, '_blank');
+                            }}
+                            color="inherit"
+                        />,
+                    ];
+                }
             },
             {
                 field: 'openHouse',
@@ -82,7 +103,6 @@ export default function TestTable({ data, onDelete }: props) {
                 field: 'price',
                 headerName: '$',
                 type: 'number',
-                width: 90,
                 sortable: true,
                 flex: 0.25
             },

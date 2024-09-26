@@ -3,6 +3,7 @@ import { PropertyType } from "../enums/enum";
 export interface Property {
     id?: number,
     location: string | undefined,
+    link: string,
     type: PropertyType | string | undefined,
     year: number | string | undefined,
     size: number | string | undefined,

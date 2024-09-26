@@ -21,6 +21,7 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
     const formData = new FormData(form);
     const detail = {
       location: formData.get('location') as string,
+      link: formData.get('link') as string,
       type: formData.get('type') as string,
       year: formData.get('year') as string,
       size: formData.get('size') as string,
@@ -32,7 +33,7 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
       MOA: formData.get('moa') as string,
       price: formData.get('price') as string,
       openHouse: formData.get('openHouse') as string,
-    };
+    } as Property;
 
     onSubmit(detail);
     onClose();
@@ -48,6 +49,8 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
           <div className="col" style={{ width: 'fit-content' }}>
             <h3>Location: </h3>
             <input name='location' type='text'/>
+            <h3>Link: </h3>
+            <input name='link' type='url'/>
             <h3>Property Type: </h3>
             <select name='type'>
               <option value='Please select'></option>
