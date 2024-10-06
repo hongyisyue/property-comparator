@@ -6,6 +6,13 @@ import Home from './components/pages/home';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+declare global {
+  interface Window {
+    initMap: () => void;
+  }
+}
+
 root.render(
     <Home/>
   // <React.StrictMode>

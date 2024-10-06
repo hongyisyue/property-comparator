@@ -1,17 +1,11 @@
-.row {
-    padding-top: 10px;
-    padding-bottom: 10px;
+.row > *:nth-child(n+2) {
+    padding-left: 10px;
 }
 
 .footer {
     padding-top: 20px;
     padding-bottom: 10px;
 }
-.col {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
 
 .table-container {
     height: 600px;
