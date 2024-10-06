@@ -166,7 +166,7 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
         </div>
         <div className="footer col">
           <button className="button left-button" type="button" onClick={onClose}>X</button>
-          <button className="button right-button" type="submit">Submit</button>
+          <button className="button right-button" type="submit">Add</button>
         </div>
       </form>
     </dialog>
