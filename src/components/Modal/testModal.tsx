@@ -8,6 +8,9 @@ interface props {
 }
 
 export default function TestModal({ open, onClose, onSubmit }: props) {
+  const defaultModalSize = {width: '450px', height: '450px'}
+  const [modalSize, setModalSize] = useState(defaultModalSize);
+
   const typeOptions = [
     'Condo',
     'Townhouse',
@@ -39,30 +42,9 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
     onClose();
   }
 
-  // const GooglePlacesAutocomplete = ({ onSelect }) => {
-  //   const [inputValue, setInputValue] = useState("");
-  //   const inputRef = useRef(null);
-  //   const autocompleteRef = useRef(null);
-
-  //   useEffect(() => {
-  //     if (!window.google) return;
-
-  //     const options = {
-  //       types: ["address"], // restrict results to addresses
-  //       componentRestrictions: { country: "us" }, // optional: limit to specific country
-  //     };
-
-  //     autocompleteRef.current = new window.google.maps.places.Autocomplete(inputRef.current, options);
-
-  //     autocompleteRef.current.addListener("place_changed", () => {
-  //       const place = autocompleteRef.current.getPlace();
-  //       if (place && place.geometry) {
-  //         onSelect(place); // Callback to pass the place back to the parent component
-  //       }
-  //     });
-  //   }, []);
-
-
+  /**
+   * The function that uses Google place API to autocomplete the address
+   */
   const initMap = () => {
     // Settting a defualt center
     const center = { lat: 50.064192, lng: -130.605469 };
@@ -110,10 +92,25 @@ export default function TestModal({ open, onClose, onSubmit }: props) {
     });
   }
 
-  window.initMap = initMap;
+  const updateModalSize = () => {
+    console.log('resize detected');
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    if (w < 700 || h < 700) {
+      setModalSize({width: (w*0.6).toString()+'px', height: (h*0.6).toString()+'px'})
+    } else {
+      setModalSize(defaultModalSize);
+    }
+  }
+  
+  useEffect(() => {
+    window.addEventListener('resize',updateModalSize);
+    window.initMap = initMap;
+    return () => {window.removeEventListener('resize', updateModalSize)}
+  }, [])
 
   return (
-    <dialog id='myModal' className='modal' open={open}>
+    <dialog id='myModal' className='modal' open={open} style={modalSize}>
       <div className="row col header">
         New place to watch
       </div>
